@@ -1,0 +1,19 @@
+requires = ["tox>=4"]
+env_list = ["lint", "type", "3.10", "3.11", "3.12"]
+
+[env_run_base]
+description = "run unit tests"
+deps = [
+    "pytest>=8"
+]
+commands = [["pytest", { replace = "posargs", default = ["tests"], extend = true }]]
+
+[env.lint]
+description = "run linters"
+skip_install = true
+deps = ["black", "pylint"]
+commands = [
+    ["black", "-l", "79", { replace = "posargs", default = ["."], extend = true }],
+    ["pylint", "--ignore", "cart_service/app/infrastructure/grpc/proto", { replace = "posargs", default = ["cart_service", "tests"], extend = true }]
+]
+
