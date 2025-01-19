@@ -1,23 +1,22 @@
 from cart_service.app.domain.services.cart_service import (
     CartServiceImplementation,
 )
-from cart_service.app.infrastructure.repository.sqlalchemy import (
-    SqlAlchemyCartRepository,
-)
 from cart_service.app.infrastructure.grpc.proto.cart_service_pb2 import (
-    CreateCartRequest,
-    CreateCartResponse,
     AddToCartRequest,
     AddToCartResponse,
-    RemoveFromCartRequest,
-    RemoveFromCartResponse,
+    CreateCartRequest,
+    CreateCartResponse,
     GetCartRequest,
     GetCartResponse,
+    RemoveFromCartRequest,
+    RemoveFromCartResponse,
+)
+from cart_service.app.infrastructure.repository.sqlalchemy import (
+    SqlAlchemyCartRepository,
 )
 
 
 class TestCartService:
-
     def test_create_cart_service(self, session):
         repo = SqlAlchemyCartRepository(session)
         service = CartServiceImplementation(repo)

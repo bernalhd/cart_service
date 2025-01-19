@@ -1,6 +1,6 @@
-from sqlalchemy import text
 import pytest
 from cart_service.app.domain.models import CartAlreadyExistsError
+from sqlalchemy import text
 
 
 class TestSqlAlchemyCartRepository:
@@ -101,7 +101,10 @@ class TestSqlAlchemyCartRepository:
         unit_price = 10.0
 
         success = cart_repository.add_item_to_cart(
-            user_id, product_id, quantity, unit_price  # Ahora se pasa user_id
+            user_id,
+            product_id,
+            quantity,
+            unit_price,  # Ahora se pasa user_id
         )
         assert success is True
 

@@ -1,12 +1,11 @@
 import pytest
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, clear_mappers
 from cart_service.app.infrastructure.db_config import db_config
 from cart_service.app.infrastructure.repository.orm import start_mappers
 from cart_service.app.infrastructure.repository.sqlalchemy import (
     SqlAlchemyCartRepository,
 )
-
+from sqlalchemy import create_engine
+from sqlalchemy.orm import clear_mappers, sessionmaker
 
 metadata = db_config.get_metadata()
 
