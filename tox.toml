@@ -1,7 +1,7 @@
 requires = ["tox>=4"]
-env_list = ["lint", "type", "3.10", "3.11", "3.12"]
+env_list = ["tests", "lint", "formatter", "3.10", "3.11", "3.12"]
 
-[env_run_base]
+[env.tests]
 description = "run unit tests"
 deps = [
     "pytest>=8"
@@ -11,9 +11,15 @@ commands = [["pytest", { replace = "posargs", default = ["tests"], extend = true
 [env.lint]
 description = "run linters"
 skip_install = true
-deps = ["black", "pylint"]
+deps = ["ruff"]
 commands = [
-    ["black", "-l", "79", { replace = "posargs", default = ["."], extend = true }],
-    ["pylint", "--ignore", "cart_service/app/infrastructure/grpc/proto", { replace = "posargs", default = ["cart_service", "tests"], extend = true }]
+    ["ruff", "check", ".", "--fix"]
 ]
 
+[env.formatter]
+description = "run formatter"
+skip_install = true
+deps = ["ruff"]
+commands = [
+    ["ruff", "format", "."]
+]
