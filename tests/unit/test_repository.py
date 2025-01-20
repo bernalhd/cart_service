@@ -1,6 +1,7 @@
 import pytest
-from cart_service.app.domain.models import CartAlreadyExistsError
 from sqlalchemy import text
+
+from cart_service.app.domain.models import CartAlreadyExistsError
 
 
 class TestSqlAlchemyCartRepository:

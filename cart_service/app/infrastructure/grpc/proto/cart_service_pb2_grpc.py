@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 
 import grpc
+
 from cart_service.app.infrastructure.grpc.proto import (
     cart_service_pb2 as cart__service_dot_app_dot_infrastructure_dot_grpc_dot_proto_dot_cart__service__pb2,
 )

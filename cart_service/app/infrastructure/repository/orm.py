@@ -1,7 +1,8 @@
-from cart_service.app.domain.models import Cart, CartItem
-from cart_service.app.infrastructure.db_config import db_config
 from sqlalchemy import Column, ForeignKey, Integer, Table
 from sqlalchemy.orm import relationship
+
+from cart_service.app.domain.models import Cart, CartItem
+from cart_service.app.infrastructure.db_config import db_config
 
 metadata = db_config.get_metadata()
 mapper_registry = db_config.get_mapper_registry()

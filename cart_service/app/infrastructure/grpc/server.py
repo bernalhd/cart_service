@@ -1,7 +1,8 @@
 from concurrent import futures
 
-import cart_service.app.infrastructure.grpc.proto.cart_service_pb2_grpc as cart_service_pb2_grpc
 import grpc
+
+import cart_service.app.infrastructure.grpc.proto.cart_service_pb2_grpc as cart_service_pb2_grpc
 from cart_service.app.domain.services.cart_service import (
     CartServiceImplementation,
 )

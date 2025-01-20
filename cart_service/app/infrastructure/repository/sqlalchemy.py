@@ -1,5 +1,7 @@
 from typing import List
 
+from sqlalchemy.orm import Session
+
 from cart_service.app.domain.models import (
     Cart,
     CartAlreadyExistsError,
@@ -8,7 +10,6 @@ from cart_service.app.domain.models import (
     CartNotFoundError,
 )
 from cart_service.app.domain.ports.repository import CartRepository
-from sqlalchemy.orm import Session
 
 
 class SqlAlchemyCartRepository(CartRepository):
