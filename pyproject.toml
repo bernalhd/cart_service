@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "cart_service"
 version = "0.1"
@@ -9,10 +13,12 @@ license = {file = "LICENSE"}
 dependencies = [
     "sqlalchemy",
     "psycopg2-binary",
-    "grpcio",
     "grpcio-tools",
+    "grpcio",
+    "protobuf",
     "python-dotenv",
 ]
+requires-python = ">=3.10"
 
 [project.scripts]
 cart_service = "cart_service.app.infrastructure.grpc.server:serve"
@@ -27,8 +33,3 @@ select = ["E", "W", "F", "I", "B", "C4", "ARG", "SIM", "UP", "PYI"]
 # E501: Line too long
 # F401: Unused import
 "cart_service/app/infrastructure/grpc/proto/*" = ["E501", "F401"]
-
-[dependency-groups]
-dev = [
-    "ruff>=0.9.2",
-]
