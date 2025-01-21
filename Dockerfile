@@ -12,6 +12,8 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 FROM python:3.10-slim-bookworm
 
+ENV DATABASE_URL=postgresql://user:password@db:5432/mydatabase
+
 COPY --from=builder --chown=app:app /app /app
 
 ENV PATH="/app/.venv/bin:$PATH"
