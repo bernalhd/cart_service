@@ -1,8 +1,8 @@
 import grpc
-import grpc_services.cart_service.cart_service_pb2 as cart_service_pb2
-import grpc_services.cart_service.cart_service_pb2_grpc as cart_service_pb2_grpc
+import cart_service.app.infrastructure.grpc.proto.cart_service_pb2 as cart_service_pb2
+import cart_service.app.infrastructure.grpc.proto.cart_service_pb2_grpc as cart_service_pb2_grpc
 
-channel = grpc.insecure_channel("localhost:50051")
+channel = grpc.insecure_channel("db:50051")
 
 stub = cart_service_pb2_grpc.CartServiceStub(channel)
 
